@@ -1,0 +1,27 @@
+# ---- Python ----
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+.venv/
+
+# ---- ML / Data ----
+backend/data/
+backend/models/
+*.pt
+*.bin
+*.safetensors
+
+# ---- Logs ----
+logs/
+*.log
+
+# ---- Node / Frontend ----
+node_modules/
+.next/
+dist/
+out/
+
+# ---- OS ----
+.DS_Store
