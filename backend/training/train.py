@@ -29,12 +29,12 @@ class TrainingConfig:
     data_path: str = "data/train.csv"
 
 
-def preprocess_function(examples, tokenizer, label_columns: List[str]):
+def preprocess_function(examples, tokenizer, label_columns: List[str], max_length: int):
     encodings = tokenizer(
         examples["comment_text"],
         truncation=True,
         padding="max_length",
-        max_length=cfg.max_length,
+        max_length=max_length,
     )
     labels = []
     for i in range(len(examples["comment_text"])):
@@ -104,7 +104,7 @@ if __name__ == "__main__":
     print("Tokenizing datasets...")
 
     def _preprocess(examples):
-        return preprocess_function(examples, tokenizer, label_columns)
+        return preprocess_function(examples, tokenizer, label_columns, cfg.max_length)
 
     tokenized_datasets = ds_dict.map(_preprocess, batched=True)
 
