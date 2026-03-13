@@ -233,11 +233,6 @@ safeprompt-guardrail/
 
 ---
 
-## 📄 License
-
-MIT License
-
----
 
 ## 👤 Author
 
