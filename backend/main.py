@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -15,7 +16,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-MODEL_DIR = os.getenv("MODEL_DIR", "models/safeprompt_distilbert")
+_DEFAULT_MODEL_DIR = Path(__file__).parent / "models" / "safeprompt_distilbert"
+MODEL_DIR = os.getenv("MODEL_DIR", str(_DEFAULT_MODEL_DIR))
 predictor: SafePromptPredictor | None = None
 
 
